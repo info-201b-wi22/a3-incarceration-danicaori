@@ -4,68 +4,58 @@ output: html_document
 ---
 
 ### Introduction
-
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+I am analyzing racial incarcerated prison populations over time throughout USA and specifically King County, WA. King County, WA is the biggest county in WA and known to have the biggest population out of all Washington counties. Which is why I have chosen this specific county for my first data set. 
 
 ### Summary Information
+Summary information that I wanted to include along with my charts is that there was an average of 1280 Black Americans who were incarcerated in King County, WA by 2016. Within that same year, there were 1489 White Americans, 64 Asian Americans and Pacific Islander Americans, 139 Latinx Americans, 112 Native Americans and 234 Americans who were mixed race or had other racial identities who were incarcerated in King County, WA.
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
-
-These will likely be calculated using your DPLYR skills, answering questions such as: 
-
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
-
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
 
 ### The Dataset
 
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+Who collected the data? 
+Vera collected the data.
 
+How was the data collected or generated?  
+The data collection was from the US Department of Bureau of Justice.
+
+Why was the data collected?
+The data was collected to show the amount of incarcerated people in USA and where they are all located and as well as their race.
+
+How many observations (rows) are in your data?  
+There are 153811 observations(rows) in the data set.
+
+How many features (columns) are in the data? 
+There are 121 columns in the data set.
+
+What, if any, ethical questions or questions of power do you need to consider when working with this data?  
+Questions of power that I need to consider when working with this data is that people who are of power in USA might skew the data by putting minorities or people of color in the criminal system because of a racial motive or bias. There might be an unequal amount of people of color represented in the data set due to racism.
+
+What are possible limitations or problems with this data?   (at least 200 words)
+Possible limitations or problems with this data is that racial bias might leak into this data. There might also be a miscount when counting the amount of people in a population because you can never truly count how many people are in a prison since there are always people moving in and out each year. Another limitation is the distribution of race within the US states. There might be more Black people than Asian or Pacific Islander Americans in Florida than there is in California. In other words, there might not be values to represent an incarcerated population in a specific state. For example, in my map plot, there are little to no Black Americans who are incarcerated in Alaska compared to California where there are a lot of Black Americans. Adding on, another limitation is how there is not a separate column for both Asian American or Pacific Islander populations. Asian Americans and Pacific Islander Americans should be able to have their own columns even if they might not have as big of a population compared to Black Americans or Latinx Americans. There is also a limitation in the data when it comes to the Native population. I noticed that there were not a lot of values for Native incarcerated population, some values were NA or not available. Overall, this data had a lot of limitations but it did well to represent the incarcerated population in USA.
 
 ### Trends Over Time Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+I included a chart regarding White Americans and Black Americans over the years because I noticed that there was a spike in the incarcerated Black American population by 1991 in King County, WA. From there, more and more Black Americans became incarcerated each year. There was a lot of Black Americans incarcerated by the year 2002 compared to White Americans. Though I do not know the historical significance of this data, I was thinking that this could be due to racism and racial bias. I decided to include specifically King County, Wa because it was the location that I related to the most and King County is the biggest county in Washington.
 
-The first chart that you will create and include will show the trend over time of your variable/topic. Think carefully about what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Show more than one, but fewer than ~10 trends
-  - This may mean showing the same measure for different locations or different racial groups. Think carefully about a meaningful comparison of locations (e.g., the top 10 counties in a state, top 10 states, etc.)
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- You need a legend for your different line colors and a clear legend title
-
-When we say "clear" or "human readable" titles and labels, that means that you should not just display the variable name.
-
-Here's an example of how to run an R script inside an RMarkdown file:
-
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
+```{r, echo = FALSE, message = FALSE}
+source("trend-chart.R")
+trend_graph
 ```
 
 ### Variable Comparison Chart
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+I included a chart regarding the comparison between Incarcerated Black Women and Men because I wanted to see the population was fully made regarding these two known variables of gender. Though there could be more gender identifiers, this graph compares the population of Incarcerated Black Women and Black Men.
 
-The second chart that you will create and include will show how two different (continuous) variables are related to one another. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- You must have clear x and y axis labels
-- The chart needs a clear title 
-- If you choose to add a color encoding (not required), you need a legend for your different color and a clear legend title
+```{r, echo = FALSE, message = FALSE}
+source("comparison-chart.R")
+comparison
+```
 
 ### Map
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
+I included a map of the average Black American Incarceration Population in the USA because I wanted to show how much Black Americans were being incarcerated in each state and how those numbers compare to other states.
 
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-- Use a minimalist theme for the map 
+```{r, echo = FALSE, message = FALSE}
+source("map.R")
+map
+```
